@@ -11,7 +11,7 @@
 
 int StoredDebugSwitchState = DebugInactive;
 
-#define Serial_Speed 38400
+#define Serial_Speed 9600
 //9600, 38400, 115200
 
 //#define ON 1
@@ -26,8 +26,6 @@ void serialEvent() {
 
 void debug_interface(void){
   int ActualDebugSwitchState = digitalRead(DebugOnOffPin);
-  ActualDebugSwitchState = HIGH;
-  debug("PIN" + String( ActualDebugSwitchState));
   if(StoredDebugSwitchState == ActualDebugSwitchState){ return; }
 
   switch(ActualDebugSwitchState) {
